@@ -1,16 +1,17 @@
 # 🚀 Panel WA Badak (Enc Version)
 
-Panel WhatsApp automation berbasis Node.js dengan fitur blast, multi session, dan auto installer via script shell. Cocok dijalankan di Termux, VPS, maupun local.
+Panel WhatsApp automation berbasis **Node.js** dengan fitur blast, multi session, dan auto installer via script shell.  
+Cocok dijalankan di **Termux, VPS, maupun Localhost**.
 
 ---
 
 ## 📌 Fitur Utama
-- ✅ Multi session WhatsApp
-- ✅ Kirim pesan otomatis (blast)
-- ✅ File sudah di-encode (lebih aman)
-- ✅ Auto install via script `.sh`
-- ✅ Support Termux / VPS / Linux
-- ✅ Bisa dikembangkan ke panel / API / bot
+- ✅ Multi session WhatsApp  
+- ✅ Kirim pesan otomatis (blast)  
+- ✅ File sudah di-encode (lebih aman)  
+- ✅ Auto install via script `.sh`  
+- ✅ Support Termux / VPS / Linux  
+- ✅ Mudah dikembangkan (API / Panel / Bot)
 
 ---
 
@@ -27,7 +28,7 @@ Panel-wa-badak/
 ## ⚙️ Persyaratan
 Pastikan device kamu sudah memiliki:
 
-- Node.js (v18+ disarankan)
+- Node.js (disarankan v18+)
 - Git
 - Termux / Linux / VPS
 
@@ -35,31 +36,37 @@ Pastikan device kamu sudah memiliki:
 
 ## 🚀 Cara Install (Full Auto - Recommended)
 
-Copy dan jalankan 1x:
+Jalankan perintah berikut:
 
-```pkg update && pkg upgrade -y && pkg install git nodejs -y && git clone https://github.com/AciLNiBoss/Panel-wa-badak.git && cd Panel-wa-badak && npm init -y && npm install && npm install chalk@4.1.2 figlet dotenv @whiskeysockets/baileys pino libsignal-node @ai-sdk/google ai axios && npm install -g pm2 && chmod +x New.sh && bash New.sh
+```bash
+pkg update && pkg upgrade -y && \
+pkg install git nodejs -y && \
+git clone https://github.com/AciLNiBoss/Panel-wa-badak.git && \
+cd Panel-wa-badak && \
+npm init -y && \
+npm install && \
+npm install chalk@4.1.2 figlet dotenv @whiskeysockets/baileys pino libsignal-node @ai-sdk/google ai axios && \
+npm install -g pm2 && \
+chmod +x New.sh && \
+bash New.sh
 ```
 
 ---
 
 ## 📥 Cara Install Manual
 
-### 1. Clone Repo
+### 1. Clone Repository
 ```bash
 git clone https://github.com/AciLNiBoss/Panel-wa-badak.git
 cd Panel-wa-badak
 ```
 
----
-
-### 2. Install Dependency
+### 2. Install Dependencies
 ```bash
 npm init -y
 npm install
 npm install chalk@4.1.2 figlet @whiskeysockets/baileys pino axios
 ```
-
----
 
 ### 3. Jalankan Script
 ```bash
@@ -68,14 +75,12 @@ bash New.sh
 
 ---
 
-## ▶️ Cara Menjalankan Manual
+## ▶️ Menjalankan Secara Manual
 
 ### Jalankan WhatsApp
 ```bash
 node Wa_enc.js
 ```
-
----
 
 ### Jalankan Blast
 ```bash
@@ -84,25 +89,23 @@ node Blast_enc.js
 
 ---
 
-## 🔑 Cara Login WhatsApp
+## 🔑 Login WhatsApp
 
 Saat pertama kali menjalankan:
 
-- Akan muncul QR Code / pairing code
-- Scan melalui WhatsApp:
-  - Buka WhatsApp
-  - Linked Devices
-  - Tambahkan perangkat
+1. Akan muncul QR Code / pairing code  
+2. Buka WhatsApp → **Linked Devices**  
+3. Tambahkan perangkat  
 
-Setelah login:
-- Session akan tersimpan otomatis
-- Tidak perlu login ulang
+Setelah berhasil:
+- Session tersimpan otomatis  
+- Tidak perlu scan ulang  
 
 ---
 
 ## 📤 Cara Blast Pesan
 
-Edit file `Blast_enc.js` jika ingin custom:
+Edit file `Blast_enc.js`:
 
 ```js
 const numbers = ["628xxx", "628xxx"]
@@ -133,72 +136,64 @@ pm2 list
 npm install chalk@4.1.2
 ```
 
----
-
 ### ❌ Module tidak ditemukan
 ```bash
 npm install
 ```
 
----
-
-### ❌ Script .sh tidak bisa jalan
+### ❌ Script `.sh` tidak bisa dijalankan
 ```bash
 chmod +x New.sh
 bash New.sh
 ```
 
----
-
 ### ❌ QR tidak muncul
-- Hapus session lama
-- Jalankan ulang bot
+- Hapus folder session  
+- Jalankan ulang bot  
 
 ---
 
 ## ⚠️ Catatan Penting
-- Hindari spam berlebihan
-- Gunakan delay agar aman
-- Gunakan nomor cadangan
-- Risiko banned tetap ada
+- Hindari spam berlebihan  
+- Gunakan delay agar lebih aman  
+- Gunakan nomor cadangan  
+- Risiko banned tetap ada  
 
 ---
 
 ## 💡 Tips Anti Banned
 
-Tambahkan delay di blast:
+Tambahkan delay pada script blast:
 
 ```js
-await new Promise(r => setTimeout(r, 5000))
+await new Promise(r => setTimeout(r, 5000)) // delay 5 detik
 ```
 
 ---
 
-## 📈 Saran Upgrade
-- 🔥 Dashboard web (admin panel)
-- 🔥 Auto reply AI
-- 🔥 Scheduler pesan
-- 🔥 Integrasi Telegram bot
-- 🔥 Database (Firebase / MongoDB)
-- 🔥 Multi akun
+## 📈 Saran Pengembangan
+- 🔥 Dashboard Web (Admin Panel)  
+- 🔥 Auto Reply AI  
+- 🔥 Scheduler Pesan  
+- 🔥 Integrasi Telegram Bot  
+- 🔥 Database (Firebase / MongoDB)  
+- 🔥 Multi Account System  
 
 ---
 
 ## 👨‍💻 Author
-- AciLNiBoss
+- **AciLNiBoss**
 
 ---
 
 ## ⭐ Support
 Jika project ini membantu:
 
-- ⭐ Star repository
-- 🍴 Fork project
-- 🔧 Kembangkan fitur
+- ⭐ Star repository  
+- 🍴 Fork project  
+- 🔧 Kembangkan fitur  
 
 ---
 
 ## 📜 License
 Free to use & modify.
-
----
