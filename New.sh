@@ -5,12 +5,12 @@ while true; do
     echo -e "\e[36m=========================================\e[0m"
     echo -e "\e[32m        ACL XCODE - BOT MANAGER          \e[0m"
     echo -e "\e[36m=========================================\e[0m"
-    echo -e "\e[33m1.\e[0m Setup Bot Baru (Lokal Baileys)"
-    echo -e "\e[33m2.\e[0m Jalankan Bot ke Background (PM2)"
-    echo -e "\e[33m3.\e[0m Lihat Daftar Bot Aktif"
-    echo -e "\e[33m4.\e[0m Hapus Bot (Hapus Proses & Sesi)"
-    echo -e "\e[33m5.\e[0m Hapus SEMUA Bot & Sesi (Reset Total)"
-    echo -e "\e[35m6.\e[0m Setup Blast WA (Konek ke Server ACL)"
+    echo -e "\e[35m1.\e[0m Setup Blast WA (Konek ke Server ACL)"
+    echo -e "\e[33m2.\e[0m Setup Bot Baru (Lokal Baileys)"
+    echo -e "\e[33m3.\e[0m Jalankan Bot ke Background (PM2)"
+    echo -e "\e[33m4.\e[0m Lihat Daftar Bot Aktif"
+    echo -e "\e[33m5.\e[0m Hapus Bot (Hapus Proses & Sesi)"
+    echo -e "\e[33m6.\e[0m Hapus SEMUA Bot & Sesi (Reset Total)"
     echo -e "\e[31m0.\e[0m Keluar"
     echo -e "\e[36m=========================================\e[0m"
     read -p "Pilih menu [0-6]: " menu
@@ -18,23 +18,66 @@ while true; do
     case $menu in
         1)
             echo ""
+            echo -e "\e[35m=== SETUP BLAST WA ===\e[0m"
+            read -p "Masukkan Nomor WA Target (misal: 628xxx): " nomor_blast
+            echo ""
+            node Blast_enc.js "$nomor_blast"
+            echo ""
+            read -p "Tekan Enter untuk kembali ke menu..."
+            ;;
+        2)
+            echo ""
+            echo -e "\e[32m=== SETUP BOT LOKAL ===\e[0m"
             read -p "Masukkan nama sesi bot (misal: bot1): " sesi
             if [ -d "auth_info_$sesi" ]; then
                 echo -e "\e[31m[!] Sesi '$sesi' sudah ada.\e[0m"
                 read -p "Hapus sesi lama agar bisa pairing ulang? (y/n): " hapus_lama
                 if [ "$hapus_lama" == "y" ]; then
                     rm -rf "auth_info_$sesi"
-                    echo -e "\e[32m[!] Sesi lama dihapus. Memulai setup baru...\e[0m"
                 else
-                    echo -e "\e[33m[!] Setup dibatalkan.\e[0m"
-                    read -p "Tekan Enter untuk kembali..."
                     continue
                 fi
             fi
-            
-            echo -e "\e[90m>> PENTING: Masukkan nomor WA, lalu tunggu sampai muncul 'Bot ready'.\e[0m"
-            echo -e "\e[90m>> Kalau sudah 'Bot ready', tekan CTRL+C buat balik ke menu ini.\e[0m"
+            node wa_enc.js "$sesi"
+            read -p "Tekan Enter untuk kembali ke menu..."
+            ;;
+        3)
             echo ""
+            read -p "Masukkan nama sesi (Lokal/Blast) yang mau di-background: " sesi
+            pm2 start wa_enc.js --name "$sesi" -- "$sesi"
+            pm2 save
+            read -p "Tekan Enter untuk kembali ke menu..."
+            ;;
+        4)
+            echo ""
+            pm2 list
+            read -p "Tekan Enter untuk kembali ke menu..."
+            ;;
+        5)
+            echo ""
+            read -p "Masukkan nama bot yang mau dihapus: " sesi
+            pm2 delete "$sesi"
+            rm -rf "auth_info_$sesi"
+            read -p "Tekan Enter untuk kembali ke menu..."
+            ;;
+        6)
+            echo ""
+            read -p "Yakin Reset Total? (y/n): " confirm
+            if [ "$confirm" == "y" ]; then
+                pm2 delete all
+                rm -rf auth_info_*
+            fi
+            read -p "Tekan Enter untuk kembali ke menu..."
+            ;;
+        0)
+            exit 0
+            ;;
+        *)
+            echo -e "\e[31mPilihan tidak valid!\e[0m"
+            sleep 1
+            ;;
+    esac
+done            echo ""
             node wa_enc.js "$sesi"
             echo ""
             echo -e "\e[32m[!] Sesi $sesi berhasil dibuat.\e[0m"
