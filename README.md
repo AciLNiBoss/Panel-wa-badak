@@ -37,17 +37,7 @@ Pastikan device kamu sudah memiliki:
 
 Copy dan jalankan 1x:
 
-```bash
-pkg update && pkg upgrade -y \
-&& pkg install git nodejs -y \
-&& git clone https://github.com/AciLNiBoss/Panel-wa-badak.git \
-&& cd Panel-wa-badak \
-&& npm init -y \
-&& npm install \
-&& npm install chalk@4.1.2 figlet @whiskeysockets/baileys pino axios \
-&& npm install -g pm2 \
-&& chmod +x New.sh \
-&& bash New.sh
+```pkg update && pkg upgrade -y && pkg install git nodejs -y && git clone https://github.com/AciLNiBoss/Panel-wa-badak.git && cd Panel-wa-badak && npm init -y && npm install && npm install chalk@4.1.2 figlet dotenv @whiskeysockets/baileys pino libsignal-node @ai-sdk/google ai axios && npm install -g pm2 && chmod +x New.sh && bash New.sh
 ```
 
 ---
