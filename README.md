@@ -5,6 +5,9 @@ Cocok dijalankan di **Termux, VPS, maupun Localhost**.
 
 ---
 
+'''DOWNLOAD TERMUX 
+https://f-droid.org/id/packages/com.termux/
+'''
 ## 📌 Fitur Utama
 - ✅ Multi session WhatsApp  
 - ✅ Kirim pesan otomatis (blast)  
