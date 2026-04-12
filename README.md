@@ -53,6 +53,22 @@ bash New.sh
 
 ---
 
+## 📦 Install Semua Module (Perintah Sakti 🔥)
+
+Jika terjadi error module, jalankan:
+
+```bash
+npm install @whiskeysockets/baileys pino libsignal-node @ai-sdk/google ai dotenv chalk@4.1.2 figlet axios
+```
+
+Atau versi alternatif:
+
+```bash
+npm install chalk@4.1.2 figlet dotenv @whiskeysockets/baileys pino libsignal-node @ai-sdk/google ai
+```
+
+---
+
 ## 📥 Cara Install Manual
 
 ### 1. Clone Repository
@@ -65,10 +81,14 @@ cd Panel-wa-badak
 ```bash
 npm init -y
 npm install
-npm install chalk@4.1.2 figlet @whiskeysockets/baileys pino axios
 ```
 
-### 3. Jalankan Script
+### 3. Install Module Penting
+```bash
+npm install chalk@4.1.2 figlet dotenv @whiskeysockets/baileys pino libsignal-node @ai-sdk/google ai axios
+```
+
+### 4. Jalankan Script
 ```bash
 bash New.sh
 ```
@@ -131,14 +151,14 @@ pm2 list
 
 ## ⚠️ Troubleshooting
 
-### ❌ Error: Cannot find module 'chalk'
-```bash
-npm install chalk@4.1.2
-```
-
-### ❌ Module tidak ditemukan
+### ❌ Error: Cannot find module
 ```bash
 npm install
+```
+
+### ❌ Fix semua module (Rekomendasi)
+```bash
+npm install @whiskeysockets/baileys pino libsignal-node @ai-sdk/google ai dotenv chalk@4.1.2 figlet axios
 ```
 
 ### ❌ Script `.sh` tidak bisa dijalankan
@@ -166,7 +186,7 @@ bash New.sh
 Tambahkan delay pada script blast:
 
 ```js
-await new Promise(r => setTimeout(r, 5000)) // delay 5 detik
+await new Promise(r => setTimeout(r, 5000))
 ```
 
 ---
