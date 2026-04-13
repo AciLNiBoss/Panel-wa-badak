@@ -8,19 +8,21 @@ LG='\e[1;92m'  # Hijau Terang (Status Aktif)
 R='\e[1;31m'   # Merah (Peringatan Sistem)
 N='\e[0m'      # Reset Warna
 
-# --- Sistem Deteksi & Optimalisasi Engine ---
-if [ ! -d "node_modules/chalk" ]; then
+# --- Sistem Deteksi & Auto-Install Modul Lengkap ---
+# Mengecek apakah modul 'ai' atau 'firebase-admin' belum ada
+if [ ! -d "node_modules/ai" ] || [ ! -d "node_modules/firebase-admin" ]; then
     clear
     echo -e "${G}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
-    echo -e " ${LG}OPTIMIZING CORE SYSTEM WHATSAPP...${N}"
+    echo -e " ${LG}AUTO-INSTALLER: MENGUNDUH CORE ENGINE...${N}"
     echo -e "${G}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━${N}"
-    echo -e "\n ${G}●${N} ${W}Mempersiapkan komponen akselerasi akun...${N}"
-    echo -e " ${G}●${N} ${W}Mengintegrasikan sistem Anti-Delay...${N}"
+    echo -e "\n ${G}●${N} ${W}Mendeteksi ada modul yang kurang!${N}"
+    echo -e " ${G}●${N} ${W}Sistem sedang mengunduh library AI & Firebase...${N}"
+    echo -e " ${D}(Proses ini butuh waktu beberapa menit tergantung internet)${N}\n"
     
-    # Instalasi modul tanpa error symlink di Android
-    npm install chalk@4.1.2 figlet --no-bin-links > /dev/null 2>&1
+    # Instalasi seluruh modul yang dibutuhkan Wa.js
+    npm install @whiskeysockets/baileys ai @ai-sdk/google firebase-admin pino chalk@4.1.2 figlet --no-bin-links
     
-    echo -e "\n ${G}✔${N} ${W}Core System Berhasil Diperkuat!${N}"
+    echo -e "\n ${G}✔${N} ${W}Semua Core System Berhasil Diperkuat!${N}"
     sleep 2
 fi
 
@@ -71,6 +73,9 @@ while true; do
                     continue
                 fi
             fi
+            echo ""
+            echo -e " ${D}>> PENTING: Masukkan nomor WA, lalu tunggu sampai muncul 'AI Engine Aktif'.${N}"
+            echo -e " ${D}>> Jika sudah, tekan CTRL+C di keyboard untuk kembali ke menu ini.${N}"
             echo ""
             node wa_enc.js "$sesi"
             echo -e "\n ${D}Tekan Enter untuk kembali ke Dashboard...${N}"
