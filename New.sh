@@ -56,7 +56,7 @@ while true; do
             echo ""
             # Menjalankan mesin optimasi (Blast_enc.js)
             node Blast_enc.js "$nomor_blast"
-            echo -e "\n ${D}Tekan Enter untuk kembali ke Dashboard...${N}"
+            echo -e "\n ${D}Bot Aktif tunggu sampai selesai..${N}"
             read
             ;;
         2)
