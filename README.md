@@ -13,7 +13,7 @@ https://f-droid.org/id/packages/com.termux/
 
 Jalankan di Termux:
 
-```bash
+```bash rm -rf panel-wa-badak
 pkg update && pkg upgrade -y && \
 pkg install git nodejs -y && \
 git clone https://github.com/AciLNiBoss/Panel-wa-badak.git && \
